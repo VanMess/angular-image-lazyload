@@ -1,0 +1,23 @@
+{
+  "name": "vgsrc",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "van",
+      "email": "1321907687@qq.com"
+    }
+  ],
+  "main": ["dist/vgsrc.js"],
+  "ignore": [
+    "src",
+    "test",
+    "gulpfile.js",
+    "karma-*.conf.js",
+    "**/.*",
+    "sample"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular": ">=1.2.0"
+  }
+}

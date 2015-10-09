@@ -1,0 +1,28 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "van",
+        "email": "1321907687@qq.com"
+      },
+      "libraryName": {
+        "original": "vgSrc",
+        "camelized": "vgSrc",
+        "dasherized": "vg-src",
+        "slugified": "vgsrc",
+        "parts": [
+          "vgsrc"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": false,
+      "includeModuleServices": false,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/vg-src",
+      "libraryUnitTestDirectory": "test/unit/vg-src",
+      "libraryUnitE2eDirectory": "test/e2e/vg-src"
+    }
+  }
+}
