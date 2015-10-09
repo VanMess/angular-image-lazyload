@@ -19,6 +19,7 @@ var rootDirectory = path.resolve('./');
 var sourceDirectory = path.join(rootDirectory, './src');
 
 var sourceFiles = [
+    'vgSrc.ie.js',
     'vgSrc.js',
     'vgSrc.config.js',
     'vgSrc.directive.js'

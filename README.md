@@ -9,3 +9,7 @@
 ##  API
 ####    vgSrcProvider
 ####    vgSrc (directive)
+
+
+##  兼容性
+目前兼容主流浏览器及ie8

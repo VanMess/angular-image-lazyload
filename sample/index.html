@@ -13,7 +13,10 @@
     }
 
     img {
-        width: 30px;
+        width: 100px;
+    }
+    li{
+      display: inline-block;
     }
 
     .bd {
@@ -49,6 +52,11 @@
             <img vg-src="" alt="">
         </div>
         <div>
+            <h3>apply classes</h3>
+            <img vg-src="ctrl.currentImg" class="bd" loading-cls="bd-black" loaded-cls="bd-blue" error-cls="bd-red">
+            <img vg-src="" class="bd" empty-cls="bd-red">
+        </div>
+        <div>
             <h3>loading status</h3>
             <img vg-src="'http://attach.bbs.miui.com/forum/201402/21/115851hrri63as3jifr4aq.jpg.thumb.jpg'" loading="ctrl.loadingImg" alt="">
             <img vg-src="'http://attach.bbs.miui.com/forum/201402/21/115850aoo868b0262obozi.jpg.thumb.jpg'" loading="'http://ico.ooopic.com/iconset01/status-icons/gif/99494.gif'" alt="">
@@ -56,10 +64,18 @@
         </div>
         <div>
             <h3>events</h3>
-            <img vg-src="this.currentImg" on-start="" on-load="" on-error="">
+            <img vg-src="ctrl.currentImg" on-begin="ctrl.log(src)" on-load="ctrl.log(src)" on-error="ctrl.log('error')">
+        </div>
+        <div>
+            <h3>in ng-repeat</h3>
+            <ul>
+                <li ng-repeat="img in ctrl.imgList">
+                    <img vg-src="img" alt="">
+                </li>
+            </ul>
         </div>
     </div>
-    <script src="http://cdn.bootcss.com/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.2.28/angular.js"></script>
     <script src="../dist/vg-src.js"></script>
     <script src="./index.js"></script>
 </body>
