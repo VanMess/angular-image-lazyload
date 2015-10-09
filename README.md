@@ -33,7 +33,7 @@
   <img vg-src="ctrl.currentImg" loading-cls="loading" error-cls="error" empty-cls="empty" loaded-cls="load" alt="">
   ```
 
-更多实例，请查阅 **sample/index.html** 文件
+更多实例，请查阅 **[sample/index.html](https://github.com/VanMess/vgSrc/blob/master/sample/index.html)** 文件
 
 ##  API
 ####    vgSrcConfigProvider
@@ -65,7 +65,7 @@ example:
   ```
 
 ####    vgSrc (directive)
-vgSrc 指令用法与 ngSrc 指令类型。指令支持 angular 表达式，如：
+vgSrc 指令用法与 ngSrc 指令类型。指令支持 angular 表达式，如.
   ```html
   <img vg-src="ctrl.currentImg" alt="">
   <img vg-src="'/img/someImage.png'" alt="">
@@ -74,6 +74,7 @@ vgSrc 指令用法与 ngSrc 指令类型。指令支持 angular 表达式，如�
 ##  配置项
 ####    替换图片
 vgSrc 支持 loading、error、empty 状态下的图片替换：
+
 1.  vgSrc 指令求值结果为空时(null、undefined、空字符串)，将显示 empty 值指定的图片
 1.  开始加载时，将显示 loading 值指定的图片
 1.  加载出错时，将显示 error 值指定的图片
@@ -81,6 +82,7 @@ vgSrc 支持 loading、error、empty 状态下的图片替换：
 
 ####    事件
 vgSrc 支持 onBegin、onError、onLoad 事件，可通过 vgSrcConfigProvider 、 vgSrc 两种方式注册不同类型的事件处理器：
+
 1.  通过 vgSrcConfigProvider 方式注册的监听器将做为默认的事件监听器，事件参数为：`$e{src:''}`，用法如：
   ```javascript
   onBegin:function($e){
@@ -95,6 +97,7 @@ vgSrc 支持 onBegin、onError、onLoad 事件，可通过 vgSrcConfigProvider �
 
 ####    样式class
 vgSrc 支持 loadingCls、loadedCls、errorCls、emptyCls 样式，可通过 vgSrcConfigProvider 、 vgSrc 两种方式注册 class 值：
+
 1.  通过 vgSrcConfigProvider 方式注册的 class 将做为默认的 class ，用法如：
   ```javascript
   errorCls:'errorClass'
