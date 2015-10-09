@@ -9,6 +9,7 @@ var directive = function($parse, defaults) {
         restrict: 'A',
         name: 'vgSrc',
         compile: function(element, attrs) {
+            var statusCls = ['loadingCls', 'emptyCls', 'errorCls', 'loadedCls'];
             return function _link($scope, element, attrs) {
                 var attrName = attrs.$normalize(defineObj.name),
                     opt = ng.copy(defaults);
@@ -16,27 +17,44 @@ var directive = function($parse, defaults) {
                     if (ng.isString(attrs[att])) {
                         // parse element's setting attribute use ng's '$parse'
                         // so that users can define the configuration by ng's 'expression'.
-                        opt[att] = $parse(attrs[att]);
+                        opt[att] = $parse(attrs[att])($scope);
                     }
                 });
 
+                var srcParser = $parse(attrs[attrName]);
+
                 // watching vgSrc attribute
                 // so that we could dynamicly fresh element's image when each time user change the value
-                attrs.$observe(attrName, _bindImg);
+                $scope.$watch(function() {
+                    return srcParser($scope);
+                }, function _bindImg(newVal, oldVal) {
+
+                    if (ng.isString(newVal) && newVal.length > 0) {
+                        attrs.$set('src', opt.loading);
+                        _refreshCls(opt['loadingCls']);
+                        _lazyLoad(newVal, function() {
+                            attrs.$set('src', newVal);
+                            _refreshCls(opt['loadedCls']);
+                        }, function() {
+                            attrs.$set('src', opt.error);
+                            _refreshCls(opt['errorCls']);
+                        })
+                    } else {
+                        attrs.$set('src', opt.empty);
+                        _refreshCls(opt['emptyCls']);
+                    }
+                });
+
+                // clear element's status class
+                // and add the new class
+                function _refreshCls(cls) {
+                    for (var i = 0; i < statusCls.length; i++) {
+                        element.removeClass(opt[statusCls[i]]);
+                    }
+                    element.addClass(cls);
+                }
             };
 
-            function _bindImg(v) {
-                if (ng.isString(v)) {
-                    attrs.$set('src', opt.loading);
-                    _lazyLoad(v, function() {
-                        attrs.$set('src', v);
-                    }, function() {
-                        attrs.$set('src', opt.error);
-                    })
-                } else {
-                    attrs.$set('src', opt.empty);
-                }
-            }
         }
     };
 

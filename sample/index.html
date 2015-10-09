@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>vgSrc sample</title>
+    <style>
+    body {
+        background-color: #ddd;
+    }
+
+    img {
+        width: 30px;
+    }
+
+    .bd {
+        border: 3px solid transparent;
+    }
+
+    .bd-red {
+        border-color: red;
+    }
+
+    .bd-black {
+        border-color: black;
+    }
+
+    .bd-blue {
+        border-color: blue;
+    }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="IndexController as ctrl">
+        <div>
+            <h3>error images</h3>
+            <img vg-src="'error'" error="ctrl.errorImg" alt="">
+            <img vg-src="'error'" error="'http://ico.ooopic.com/iconset01/status-icons/gif/99494.gif'" alt="">
+            <img vg-src="'error'" alt="">
+        </div>
+        <div>
+            <h3>empty images</h3>
+            <img vg-src="" empty="ctrl.emptyImg" alt="">
+            <img vg-src="" empty="" alt="">
+            <img vg-src="" alt="">
+        </div>
+        <div>
+            <h3>loading status</h3>
+            <img vg-src="'http://attach.bbs.miui.com/forum/201402/21/115851hrri63as3jifr4aq.jpg.thumb.jpg'" loading="ctrl.loadingImg" alt="">
+            <img vg-src="'http://attach.bbs.miui.com/forum/201402/21/115850aoo868b0262obozi.jpg.thumb.jpg'" loading="'http://ico.ooopic.com/iconset01/status-icons/gif/99494.gif'" alt="">
+            <img vg-src="'http://attach.bbs.miui.com/forum/201402/21/115848qhswo1ooivwwwwch.jpg.thumb.jpg'" alt="">
+        </div>
+        <div>
+            <h3>events</h3>
+            <img vg-src="this.currentImg" on-start="" on-load="" on-error="">
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="../dist/vg-src.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
