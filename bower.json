@@ -1,5 +1,5 @@
 {
-  "name": "vgsrc",
+  "name": "vgSrc",
   "version": "0.1.0",
   "authors": [
     {
@@ -7,7 +7,7 @@
       "email": "1321907687@qq.com"
     }
   ],
-  "main": ["dist/vgsrc.js"],
+  "main": ["dist/vg-src.js"],
   "ignore": [
     "src",
     "test",
