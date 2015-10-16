@@ -5,23 +5,26 @@ for (var i in {
 }) {
     DONT_ENUM = false;
 }
-
-
-Object.keys = Object.keys || function(obj) { //ecma262v5 15.2.3.14
-    var result = [];
-    for (var key in obj)
-        if (hasOwn.call(obj, key)) {
-            result.push(key);
-        }
-    if (DONT_ENUM && obj) {
-        for (var i = 0; key = DONT_ENUM[i++];) {
+Object.keys = Object.keys || (function(obj) { //ecma262v5 15.2.3.14
+    return function(obj) {
+        var result = [],
+            key;
+        for (key in obj) {
             if (hasOwn.call(obj, key)) {
                 result.push(key);
             }
         }
-    }
-    return result;
-};
+        if (DONT_ENUM && obj) {
+            for (var i = 0; i < DONT_ENUM.length; i++) {
+                key = DONT_ENUM[i++];
+                if (hasOwn.call(obj, key)) {
+                    result.push(key);
+                }
+            }
+        }
+        return result;
+    };
+})();
 
 if (!Function.prototype.bind) {
     Function.prototype.bind = function(oThis) {
